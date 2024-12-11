@@ -1,9 +1,16 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/authContext/AuthContext";
-
+import logo from "../assets/favicon.png"
 const Navbar = () => {
-    const { user } = useContext(AuthContext)
+    const { user, signOutUser } = useContext(AuthContext);
+    const handleSignOut = () => {
+        signOutUser()
+            .then(result => {
+                console.log('successfully logout');
+            })
+            .catch(err => console.log('erroorrrrrrr'))
+    }
     const links = <>
         <Link className="mr-5" to="/">Home</Link>
         <Link className="mr-5" to="register">Register</Link>
@@ -32,7 +39,8 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <img className="w-10" src={logo} alt="" />
+                <Link to="/" className="btn btn-ghost text-xl">Job Portal</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -41,7 +49,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end gap-4">
                 {
-                    user ? <button className="btn">Logout</button> : <> <Link to="/register" className="btn">Register</Link>
+                    user ? <button onClick={handleSignOut} className="btn">Logout</button> : <> <Link to="/register" className="btn">Register</Link>
                         <Link to="/signIn" className="btn">Sign In</Link></>
                 }
             </div>
