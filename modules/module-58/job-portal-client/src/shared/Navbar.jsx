@@ -2,9 +2,8 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const links = <>
-        <Link to="/">Home</Link>
-        <Link to="register">Register</Link>
-        <li><a>Item 3</a></li>
+        <Link className="mr-5" to="/">Home</Link>
+        <Link className="mr-5" to="register">Register</Link>
     </>
     return (
         <div className="navbar bg-base-100">
