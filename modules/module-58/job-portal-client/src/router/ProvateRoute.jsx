@@ -5,7 +5,6 @@ import { Navigate, useLocation } from "react-router-dom";
 const ProvateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
-    console.log(location.pathname);
     if (loading) {
         return <h1 className="font-bold text-3xl text-red-500">Loading...</h1>
     }

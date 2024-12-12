@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const JobDetails = () => {
     const job = useLoaderData();
@@ -12,7 +12,7 @@ const JobDetails = () => {
                 <h1 className="text-3xl font-semibold">{title}</h1>
                 <p>{description}</p>
                 <div className="flex justify-end">
-                    <button className="btn btn-primary">Apply</button>
+                    <Link to={`/applyJob/${job._id}`} className="btn btn-primary">Apply</Link>
                 </div>
             </div>
         </div>
