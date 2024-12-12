@@ -1,4 +1,5 @@
 import { IoLocationSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const HotJobCard = ({ job }) => {
     const { title, location, jobType, category, applicationDeadline, salaryRange, description, company, company_logo, requirements } = job
@@ -24,7 +25,7 @@ const HotJobCard = ({ job }) => {
                 </div>
                 <div className="card-actions justify-end items-center">
                     <p>Salary: ${salaryRange.min} - ${salaryRange.max}</p>
-                    <button className="btn btn-primary btn-sm">Apply</button>
+                    <Link to={`/jobs/${job._id}`} className="btn btn-primary btn-sm">Apply</Link>
                 </div>
             </div>
         </div>
