@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { data, useParams } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const ApplyJob = () => {
@@ -17,7 +17,18 @@ const ApplyJob = () => {
             linkedIn,
             resume
         }
-        console.log(jobApplication);
+
+        fetch('http://localhost:3000/job-applications', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(jobApplication)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
     }
     return (
         <div className="card bg-base-100 w-full max-w-screen-sm mx-auto shrink-0 shadow-2xl my-10">
