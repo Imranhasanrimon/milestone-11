@@ -1,49 +1,50 @@
+import { useParams } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const ApplyJob = () => {
+    const { id } = useParams()
+    const { user } = useAuth();
     const handleApply = e => {
         e.preventDefault();
         const form = e.target;
         const github = form.github.value;
         const linkedIn = form.linkedIn.value;
         const resume = form.resume.value;
-        console.log(github, linkedIn, resume);
+        const jobApplication = {
+            job_id: id,
+            applicant_email: user.email,
+            github,
+            linkedIn,
+            resume
+        }
+        console.log(jobApplication);
     }
     return (
-        <div className="hero bg-base-200 min-h-screen">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">
-                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
-                    </p>
+        <div className="card bg-base-100 w-full max-w-screen-sm mx-auto shrink-0 shadow-2xl my-10">
+            <form onSubmit={handleApply} className="card-body">
+                <h1 className="text-2xl md:text-3xl text-center font-bold">Apply For A Job</h1>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Linked In URL</span>
+                    </label>
+                    <input type="url" name="linkedIn" placeholder="Linked In URL" className="input input-bordered" required />
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                    <form onSubmit={handleApply} className="card-body">
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Linked In URL</span>
-                            </label>
-                            <input type="url" name="linkedIn" placeholder="Linked In URL" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">GitHub URL</span>
-                            </label>
-                            <input type="url" name="github" placeholder="GitHub URL" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Resume URL</span>
-                            </label>
-                            <input type="url" name="resume" placeholder="Resume URL" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control mt-6">
-                            <button className="btn btn-primary">Apply</button>
-                        </div>
-                    </form>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">GitHub URL</span>
+                    </label>
+                    <input type="url" name="github" placeholder="GitHub URL" className="input input-bordered" required />
                 </div>
-            </div>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Resume URL</span>
+                    </label>
+                    <input type="url" name="resume" placeholder="Resume URL" className="input input-bordered" required />
+                </div>
+                <div className="form-control mt-6">
+                    <button className="btn btn-primary">Apply</button>
+                </div>
+            </form>
         </div>
     );
 };
