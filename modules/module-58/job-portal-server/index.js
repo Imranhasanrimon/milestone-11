@@ -58,6 +58,8 @@ async function run() {
                 // console.log(result);
                 if (job) {
                     application.title = job.title;
+                    application.company = job.company;
+                    application.company_logo = job.company_logo;
                 }
             }
             res.send(result);
