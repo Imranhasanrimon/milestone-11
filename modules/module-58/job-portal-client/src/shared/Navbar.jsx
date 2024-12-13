@@ -14,6 +14,7 @@ const Navbar = () => {
     const links = <>
         <Link className="mr-5" to="/">Home</Link>
         <Link className="mr-5" to="register">Register</Link>
+        <Link className="mr-5" to="myApplications">My Applications</Link>
     </>
     return (
         <div className="navbar bg-base-100">
