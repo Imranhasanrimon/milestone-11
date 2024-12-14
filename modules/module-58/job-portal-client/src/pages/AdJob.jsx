@@ -73,6 +73,20 @@ const AdJob = () => {
                         </div>
                     </div>
                 </div>
+                {/* job Description */}
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Job Description</span>
+                    </label>
+                    <textarea className="textarea textarea-primary" placeholder="Job Description"></textarea>
+                </div>
+                {/* job Requrements */}
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Job Requrements</span>
+                    </label>
+                    <textarea className="textarea textarea-primary" placeholder="Write Each Job Requrement in a new line"></textarea>
+                </div>
                 <div className="form-control mt-6">
                     <button className="btn btn-primary">Add Job</button>
                 </div>
