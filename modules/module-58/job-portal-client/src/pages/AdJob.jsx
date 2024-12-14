@@ -5,7 +5,9 @@ const AdJob = () => {
         const formData = new FormData(e.target);
         // console.log(formData.entries());
         const initialData = Object.fromEntries(formData.entries())
-        console.log(initialData);
+        const { min, max, currency, ...newJob } = initialData;
+        console.log(newJob);
+        newJob.salaryRange = { min, max, currency }
 
     }
     return (
