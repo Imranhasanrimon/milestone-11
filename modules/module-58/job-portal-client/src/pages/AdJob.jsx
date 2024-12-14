@@ -3,12 +3,23 @@ const AdJob = () => {
     const handleAddJob = e => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        // console.log(formData.entries());
         const initialData = Object.fromEntries(formData.entries())
         const { min, max, currency, ...newJob } = initialData;
-        console.log(newJob);
-        newJob.salaryRange = { min, max, currency }
+        newJob.salaryRange = { min, max, currency };
+        newJob.requrements = newJob.requrements.split('\n');
+        newJob.responsibilities = newJob.responsibilities.split('\n');
 
+        fetch('http://localhost:3000/jobs', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newJob)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
     }
     return (
         <div>
