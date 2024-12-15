@@ -56,7 +56,7 @@ const AdJob = () => {
                     <label className="label">
                         <span className="label-text">Job Field</span>
                     </label>
-                    <select name="jobField" className="select input-bordered select-ghost w-full ">
+                    <select name="category" className="select input-bordered select-ghost w-full ">
                         <option disabled selected>Pick the job Field</option>
                         <option>Engineering</option>
                         <option>Marketing</option>
@@ -120,21 +120,28 @@ const AdJob = () => {
                     <label className="label">
                         <span className="label-text">HR Name</span>
                     </label>
-                    <input type="text" name="hrName" placeholder="HR Name" className="input input-bordered" required />
+                    <input type="text" name="hr_name" placeholder="HR Name" className="input input-bordered" required />
                 </div>
                 {/* HR Email */}
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">HR Email</span>
                     </label>
-                    <input type="text" name="hrEmail" placeholder="HR Email" className="input input-bordered" required />
+                    <input type="text" name="hr_email" placeholder="HR Email" className="input input-bordered" required />
+                </div>
+                {/* Company_name*/}
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Company_name</span>
+                    </label>
+                    <input type="text" name="company_logo" placeholder="company" className="input input-bordered" required />
                 </div>
                 {/* Company_logo URL */}
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Company_logo URL</span>
                     </label>
-                    <input type="text" name="companyLogo" placeholder="Company_logo URL" className="input input-bordered" required />
+                    <input type="text" name="company_logo" placeholder="Company_logo URL" className="input input-bordered" required />
                 </div>
                 <div className="form-control mt-6">
                     <button className="btn btn-primary">Add Job</button>
