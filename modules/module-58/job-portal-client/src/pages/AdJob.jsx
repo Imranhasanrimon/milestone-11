@@ -1,12 +1,14 @@
+import useAuth from "../hooks/useAuth";
 
 const AdJob = () => {
+    const { user } = useAuth();
     const handleAddJob = e => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const initialData = Object.fromEntries(formData.entries())
         const { min, max, currency, ...newJob } = initialData;
         newJob.salaryRange = { min, max, currency };
-        newJob.requrements = newJob.requrements.split('\n');
+        newJob.requirements = newJob.requirements.split('\n');
         newJob.responsibilities = newJob.responsibilities.split('\n');
 
         fetch('http://localhost:3000/jobs', {
@@ -134,7 +136,7 @@ const AdJob = () => {
                     <label className="label">
                         <span className="label-text">HR Email</span>
                     </label>
-                    <input type="text" name="hr_email" placeholder="HR Email" className="input input-bordered" required />
+                    <input type="text" defaultValue={user.email} name="hr_email" placeholder="HR Email" className="input input-bordered" required />
                 </div>
                 {/* Company_name*/}
                 <div className="form-control">
