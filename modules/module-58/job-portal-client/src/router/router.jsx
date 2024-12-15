@@ -10,6 +10,7 @@ import ProvateRoute from "./ProvateRoute";
 import ApplyJob from "../pages/ApplyJob";
 import MyApplications from "../pages/MyApplications";
 import AdJob from "../pages/AdJob";
+import MyPostedJobs from "../pages/MyPostedJobs";
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: '/myApplications',
                 element: <ProvateRoute><MyApplications></MyApplications></ProvateRoute>,
+            },
+            {
+                path: '/myPostedJobs',
+                element: <ProvateRoute><MyPostedJobs></MyPostedJobs></ProvateRoute>,
             },
             {
                 path: '/register',

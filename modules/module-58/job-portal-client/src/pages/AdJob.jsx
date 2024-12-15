@@ -39,6 +39,13 @@ const AdJob = () => {
                     </label>
                     <input type="text" name="location" placeholder="Job Location" className="input input-bordered" required />
                 </div>
+                {/* applicationDeadline */}
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">applicationDeadline</span>
+                    </label>
+                    <input type="date" name="applicationDeadline" placeholder="applicationDeadline" className="input input-bordered" required />
+                </div>
                 {/* job Type */}
                 <div className="form-control">
                     <label className="label">
@@ -106,7 +113,7 @@ const AdJob = () => {
                     <label className="label">
                         <span className="label-text">Job Requrements</span>
                     </label>
-                    <textarea name="requrements" className="textarea textarea-primary" placeholder="Write Each Job Requrement in a new line"></textarea>
+                    <textarea name="requirements" className="textarea textarea-primary" placeholder="Write Each Job Requrement in a new line"></textarea>
                 </div>
                 {/* job Responsibilities */}
                 <div className="form-control">
@@ -134,7 +141,7 @@ const AdJob = () => {
                     <label className="label">
                         <span className="label-text">Company_name</span>
                     </label>
-                    <input type="text" name="company_logo" placeholder="company" className="input input-bordered" required />
+                    <input type="text" name="company" placeholder="company" className="input input-bordered" required />
                 </div>
                 {/* Company_logo URL */}
                 <div className="form-control">
