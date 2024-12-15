@@ -25,6 +25,7 @@ const SignIn = () => {
                 axios.post('http://localhost:3000/jwt', user)
                     .then(res => console.log(res))
                 // navigate(from)
+                //module 60.3 is so far done
             })
             .catch(err => console.log(err.message))
 
