@@ -22,10 +22,9 @@ const SignIn = () => {
             .then(result => {
                 console.log(result.user);
                 const user = { email: email };
-                axios.post('http://localhost:3000/jwt', user)
-                    .then(res => console.log(res))
+                axios.post('http://localhost:3000/jwt', user, { withCredentials: true })
+                    .then(res => console.log(res.data))
                 // navigate(from)
-                //module 60.3 is so far done
             })
             .catch(err => console.log(err.message))
 
