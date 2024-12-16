@@ -22,6 +22,9 @@ const logger = (req, res, next) => {
     console.log('inside the logger middleware');
     next();
 }
+const verifyToken = (req, res, next) => {
+    console.log('inside verifyToken Middleware');
+}
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.7hbnv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
