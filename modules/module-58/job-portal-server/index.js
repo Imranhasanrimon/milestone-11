@@ -22,10 +22,10 @@ const logger = (req, res, next) => {
     console.log('inside the logger middleware');
     next();
 }
-const verifyToken = (req, res, next) => {
-    console.log('inside verifyToken Middleware', req.cookies);
-    next()
-}
+// const verifyToken = (req, res, next) => {
+//     console.log('inside verifyToken Middleware', req.cookies);
+//     next()
+// }
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.7hbnv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
@@ -81,7 +81,7 @@ async function run() {
             const result = await jobsCollection.insertOne(newJob);
             res.send(result)
         })
-        app.get('/job-appliacation', verifyToken, async (req, res) => {
+        app.get('/job-appliacation', async (req, res) => {
             const email = req.query.email;
             const query = { applicant_email: email };
             const result = await applicationCollection.find(query).toArray();
