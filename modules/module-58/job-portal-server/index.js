@@ -120,3 +120,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log('project is running on port:', port);
 })
+
+//I'm facing a problem with a middleware where I'm not getting the cookie
