@@ -21,9 +21,9 @@ const SignIn = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result.user);
-                const user = { email: email };
-                axios.post('http://localhost:3000/jwt', user, { withCredentials: true })
-                    .then(res => console.log(res.data))
+                // const user = { email: email };
+                // axios.post('http://localhost:3000/jwt', user, { withCredentials: true })
+                //     .then(res => console.log(res.data))
                 // navigate(from)
             })
             .catch(err => console.log(err.message))
