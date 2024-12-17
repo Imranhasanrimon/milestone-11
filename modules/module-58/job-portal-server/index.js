@@ -18,10 +18,6 @@ app.use(cors({
 app.use(express.json())
 app.use(cookieParser())
 
-const logger = (req, res, next) => {
-    console.log('inside the logger middleware');
-    next();
-}
 const verifyToken = (req, res, next) => {
     // console.log('inside verifyToken Middleware');
     const token = req?.cookies?.token;
@@ -70,6 +66,15 @@ async function run() {
                 })
                 .send({ success: true })
         })
+        app.post('/logout', (req, res) => {
+            res
+                .clearCookie('token', {
+                    httpOnly: true,
+                    secure: false
+                })
+                .send({ success: trues })
+        })
+
         //jobs related APIs
         const jobsCollection = client.db('job-portal').collection('jobs');
         const applicationCollection = client.db('job-portal').collection('job-applications');
