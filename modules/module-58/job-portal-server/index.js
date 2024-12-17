@@ -83,6 +83,7 @@ async function run() {
         })
         app.get('/job-appliacation', async (req, res) => {
             const email = req.query.email;
+            console.log('cook cook cookies', req.cookies);
             const query = { applicant_email: email };
             const result = await applicationCollection.find(query).toArray();
             for (let application of result) {
@@ -122,4 +123,4 @@ app.listen(port, () => {
 })
 
 //I'm facing a problem with a middleware where I'm not getting the cookie
-//this module is done up to 60.6"
+//this module is done up to 60.6" 

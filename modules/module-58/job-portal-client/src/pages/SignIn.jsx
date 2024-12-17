@@ -22,7 +22,7 @@ const SignIn = () => {
             .then(result => {
                 console.log(result.user);
                 const user = { email: email };
-                axios.post('http://localhost:3000/jwt', user, { withCredentials: true })
+                axios.post('http://localhost:3000/jwt', user)
                     .then(res => console.log(res.data))
                 // navigate(from)
             })
