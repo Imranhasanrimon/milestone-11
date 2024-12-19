@@ -15,10 +15,10 @@ const Shop = () => {
     const [currentPage, setCurrentPage] = useState(0)
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch(`http://localhost:5000/products?size=${itemsPerPage}&currentPage=${currentPage}`)
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, []);
+    }, [currentPage, itemsPerPage]);
 
     useEffect(() => {
         const storedCart = getShoppingCart();
@@ -79,9 +79,7 @@ const Shop = () => {
         }
     }
     const handleNext = () => {
-        console.log(currentPage);
         if (currentPage < pages.length - 1) {
-            console.log('clidke');
             setCurrentPage(currentPage + 1)
         }
     }
@@ -122,7 +120,7 @@ const Shop = () => {
                     <option value="15">15</option>
                     <option value="20">20</option>
                     <option value="50">50</option>
-                    <option value="50">60</option>
+                    <option value="60">60</option>
                 </select>
             </div>
         </div>
