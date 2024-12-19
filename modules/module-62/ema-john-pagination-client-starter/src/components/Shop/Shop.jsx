@@ -12,6 +12,7 @@ const Shop = () => {
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const numberOfPages = Math.ceil(count / itemsPerPage);
     const pages = [...Array(numberOfPages).keys()];
+    const [currentPage, setCurrentPage] = useState(0)
 
     useEffect(() => {
         fetch('http://localhost:5000/products')
@@ -67,6 +68,22 @@ const Shop = () => {
     const handleitemsPerPage = (e) => {
         const val = parseInt(e.target.value);
         setItemsPerPage(val);
+        setCurrentPage(0)
+    }
+    const handlePage = page => {
+        setCurrentPage(page);
+    }
+    const handlePrev = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1)
+        }
+    }
+    const handleNext = () => {
+        console.log(currentPage);
+        if (currentPage < pages.length - 1) {
+            console.log('clidke');
+            setCurrentPage(currentPage + 1)
+        }
     }
     return (
         <div className='shop-container'>
@@ -90,9 +107,15 @@ const Shop = () => {
                 </Cart>
             </div>
             <div className='pagenation'>
+                <p style={{ textAlign: 'center' }}>currentPage : {currentPage}</p>
+                <button onClick={handlePrev}>prev</button>
                 {
-                    pages.map(page => <button key={page}>{page}</button>)
+                    pages.map(page => <button key={page}
+                        onClick={() => handlePage(page)}
+                        className={currentPage === page && 'selected'}
+                    >{page}</button>)
                 }
+                <button onClick={handleNext}>next</button>
                 <select value={itemsPerPage} onChange={handleitemsPerPage} name="" id="">
                     <option value="5">5</option>
                     <option value="10">10</option>
