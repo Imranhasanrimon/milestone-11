@@ -37,7 +37,10 @@ async function run() {
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
         //Auth related APIs
-
+        app.post('/jwt', async (req, res) => {
+            const user = req.body;
+            console.log(user);
+        })
 
 
         //jobs related APIs

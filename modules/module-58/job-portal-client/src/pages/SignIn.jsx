@@ -21,7 +21,11 @@ const SignIn = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result.user);
-
+                const user = { email: result.user.email }
+                axios.post(`http://localhost:3000/jwt`, user)
+                    .then(res => {
+                        console.log(res.data);
+                    })
             })
             .catch(err => console.log(err.message))
 
