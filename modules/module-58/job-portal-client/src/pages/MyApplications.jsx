@@ -6,10 +6,9 @@ const MyApplications = () => {
     const { user } = useAuth();
     const [myApplications, setMyApplications] = useState([]);
     useEffect(() => {
-        // fetch(`http://localhost:3000/job-appliacation?email=${user.email}`)
-        //     .then(res => res.json())
-        //     .then(data => setMyApplications(data))
-        axios.get(`http://localhost:3000/job-appliacation?email=${user.email}`, { withCredentials: true }).then(res => setMyApplications(res.data))
+        fetch(`http://localhost:3000/job-appliacation?email=${user.email}`)
+            .then(res => res.json())
+            .then(data => setMyApplications(data))
     }, [user.email])
     return (
         <div>
