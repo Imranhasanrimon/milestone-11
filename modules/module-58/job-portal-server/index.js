@@ -20,9 +20,14 @@ app.use(cookieParser())
 const verifyCookie = (req, res, next) => {
     const token = req?.cookies?.token;
     if (!token) {
-        return console.log('failed');
+        return res.status(401).send({ message: 'unauthorized access' });
     }
-    next()
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+            return res.status(401).send({ message: 'unauthorized access' });
+        }
+        next()
+    })
     console.log('success');
 }
 
