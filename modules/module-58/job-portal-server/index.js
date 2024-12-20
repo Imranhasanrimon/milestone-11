@@ -18,7 +18,9 @@ app.use(cors({
 app.use(express.json())
 app.use(cookieParser())
 const verifyCookie = (req, res, next) => {
-    console.log('this is inside middleware');
+    const cookies = req?.cookies?.token;
+    console.log(cookies);
+    next()
 }
 
 
