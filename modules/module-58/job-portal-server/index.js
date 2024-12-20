@@ -18,9 +18,12 @@ app.use(cors({
 app.use(express.json())
 app.use(cookieParser())
 const verifyCookie = (req, res, next) => {
-    const cookies = req?.cookies?.token;
-    console.log(cookies);
+    const token = req?.cookies?.token;
+    if (!token) {
+        return console.log('failed');
+    }
     next()
+    console.log('success');
 }
 
 
