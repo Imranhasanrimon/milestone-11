@@ -17,6 +17,9 @@ app.use(cors({
 }));
 app.use(express.json())
 app.use(cookieParser())
+const verifyCookie = (req, res, next) => {
+    console.log('this is inside middleware');
+}
 
 
 
@@ -73,7 +76,7 @@ async function run() {
             const result = await jobsCollection.insertOne(newJob);
             res.send(result)
         })
-        app.get('/job-appliacation', async (req, res) => {
+        app.get('/job-appliacation', verifyCookie, async (req, res) => {
             const email = req.query.email;
             const query = { applicant_email: email };
 
