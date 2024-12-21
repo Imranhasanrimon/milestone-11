@@ -131,5 +131,3 @@ app.listen(port, () => {
     console.log('project is running on port:', port);
 })
 
-//module 60 practice is done
-//module 61 will be practiced from 21/12/2024
