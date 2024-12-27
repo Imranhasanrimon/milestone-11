@@ -99,7 +99,6 @@ async function run() {
                 const query1 = { _id: new ObjectId(application.job_id) }
                 // console.log(query1);
                 const job = await jobsCollection.findOne(query1);
-                // console.log(result);
                 if (job) {
                     application.title = job.title;
                     application.company = job.company;
