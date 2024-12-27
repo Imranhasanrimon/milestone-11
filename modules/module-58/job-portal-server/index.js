@@ -8,8 +8,6 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-//hgn24BLqeraUzc6v
-//job-portal
 //middleware
 app.use(cors({
     origin: ['http://localhost:5173'],
@@ -95,9 +93,7 @@ async function run() {
 
             const result = await applicationCollection.find(query).toArray();
             for (let application of result) {
-                // console.log(application.job_id);
                 const query1 = { _id: new ObjectId(application.job_id) }
-                // console.log(query1);
                 const job = await jobsCollection.findOne(query1);
                 if (job) {
                     application.title = job.title;
