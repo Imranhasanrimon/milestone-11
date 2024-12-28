@@ -44,4 +44,3 @@ const Cart = ({ cart, handleClearCart, children }) => {
 };
 
 export default Cart;
-//need to check this again
